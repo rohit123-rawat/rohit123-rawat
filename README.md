@@ -2,7 +2,6 @@
  [![MasterHead](https://media0.giphy.com/headers/tinganho/md7tvztxjaih.gif)](https://rohit123-rawat.io)
 <h1 align="center">Hi 👋, I'm Rohit Rawat</h1>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=rohit123-rawat&label=Profile%20views&color=0e75b6&style=flat" alt="rohit123-rawat" /> </p>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=rohit123-rawat" alt="rohit123-rawat" /></a> </p>
 
