@@ -18,7 +18,7 @@
 
 ### :fire: My Stats :
 <div class="row">
-  <img align="right" src="https://github-readme-stats.vercel.app/api?username=rohit123-rawat&theme=vision-friendly-dark&background=000000" alt="rohit123-rawat" />
+  <img width="400" align="right" src="https://github-readme-stats.vercel.app/api?username=rohit123-rawat&theme=vision-friendly-dark&background=000000" alt="rohit123-rawat" />
 
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=rohit123-rawat&theme=dark&background=000000)](https://git.io/streak-stats)
 
