@@ -21,8 +21,7 @@
 <div class="row">
  <img width="400" align="center" src="https://github-readme-stats.vercel.app/api?username=rohit123-rawat&theme=vision-friendly-dark&background=000000" alt="rohit123-rawat" />
 
-<img width="400" align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=rohit123-rawat&&theme=dark&background=000000" alt="rohit123-rawat" 
-/>
+<img width="400" align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=rohit123-rawat&&theme=dark&background=000000" alt="rohit123-rawat" />
 </div>
 
 
