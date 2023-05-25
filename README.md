@@ -1,9 +1,6 @@
 
 <h1 align="center">Hi 👋, I'm Rohit Rawat</h1>
 
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=rohit123-rawat&theme=onedark" alt="rohit123-rawat" /></a> </p>
-
 ### :studio_microphone: Connect with me :
 <p align="left">
 <a href="https://linkedin.com/in/rohit-singh-729225247" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rohit-singh-729225247" height="30" width="40" /></a>
