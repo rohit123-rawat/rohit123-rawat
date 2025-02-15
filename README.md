@@ -4,7 +4,7 @@
 ---
 
 ### 🚀 About Me  
-🔹 Full-stack developer with expertise in **Laravel, React, and Golang**  
+🔹 Full-stack developer with expertise in **Laravel, Java, React, and Golang**  
 🔹 Passionate about building scalable, efficient, and high-performance applications  
 🔹 Love solving problems and continuously learning new technologies  
 
