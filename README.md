@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Rohit Rawat</h1>
-<h3 align="center">A Passionate Full-Stack Developer | Laravel | React | Golang</h3>
+<h3 align="center">A Passionate Full-Stack Developer | Laravel | Java | React | Golang</h3>
 
 ---
 
