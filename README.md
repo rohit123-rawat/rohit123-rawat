@@ -15,9 +15,9 @@
 <a href="https://linkedin.com/in/rohit-singh-729225247" target="_blank">
   <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
 </a>
-<a href="https://instagram.com/rohitrawat6379" target="_blank">
+<!-- <a href="https://instagram.com/" target="_blank">
   <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
-</a>
+</a> -->
 <a href="https://discord.gg/Rohit Rawat#0582" target="_blank">
   <img src="https://img.shields.io/badge/Discord-%237289DA.svg?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
 </a>
