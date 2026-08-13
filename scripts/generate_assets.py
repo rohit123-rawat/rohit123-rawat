@@ -196,66 +196,143 @@ def gen_hero():
         shooting_star((180, -30), (1010, 260), total=17, start=0.74, tail=110),
     ])
 
-    # --- solar band ---
+    # --- 3D orbital solar system ---------------------------------------
+    # Planets revolve on flattened ellipses (shallow viewing angle) with
+    # real relative periods (Mercury fastest -> Pluto slowest). Each planet
+    # has a "front" and "back" copy gated by discrete opacity so it truly
+    # passes BEHIND the sun on the far side and IN FRONT on the near side,
+    # while scale+brightness modulate with depth. The whole system drifts,
+    # echoing the sun's own motion around the galaxy.
+    scx, scy = 450.0, 322.0
+    FLAT = 0.17  # ellipse minor/major ratio = viewing tilt
+
+    def opath(rx):
+        ry = rx * FLAT
+        return (f"M {scx+rx:.1f} {scy:.1f} "
+                f"A {rx:.1f} {ry:.1f} 0 0 1 {scx-rx:.1f} {scy:.1f} "
+                f"A {rx:.1f} {ry:.1f} 0 0 1 {scx+rx:.1f} {scy:.1f}")
+
+    def scale_anim(dur, beg):
+        return (f'<animateTransform attributeName="transform" type="scale" values="1;1.16;1;0.8;1" '
+                f'keyTimes="0;0.25;0.5;0.75;1" calcMode="spline" '
+                f'keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1" '
+                f'dur="{dur}s" begin="{beg}s" repeatCount="indefinite"/>')
+
+    def planet_copy(rx, dur, beg, body, side):
+        gate = "1;0" if side == "front" else "0;1"
+        depth = "" if side == "front" else ' opacity="0.78"'
+        return (f'<g>'
+                f'<animate attributeName="opacity" values="{gate}" keyTimes="0;0.5" calcMode="discrete" dur="{dur}s" begin="{beg}s" repeatCount="indefinite"/>'
+                f'<animateMotion path="{opath(rx)}" dur="{dur}s" begin="{beg}s" repeatCount="indefinite"/>'
+                f'<g{depth}><g>{scale_anim(dur, beg)}{body}</g></g>'
+                f'</g>')
+
+    def body(r, fill, extra=""):
+        return f'<circle r="{r+3}" fill="{fill}" opacity="0.18"/><circle r="{r}" fill="{fill}"/>{extra}'
+
+    jup_bands = '<path d="M -10 -4 Q 0 -6.4 10 -4" stroke="#8a5a2b" stroke-width="1.7" fill="none" opacity="0.55"/><path d="M -12 1.6 Q 0 -0.8 12 1.6" stroke="#8a5a2b" stroke-width="2" fill="none" opacity="0.5"/><path d="M -9 6 Q 0 4.4 9 6" stroke="#e8c496" stroke-width="1.5" fill="none" opacity="0.6"/>'
+    saturn_ring = '<ellipse rx="22" ry="6.2" fill="none" stroke="#D9C08C" stroke-width="2.2" transform="rotate(-16)" opacity="0.9"/><ellipse rx="17" ry="4.4" fill="none" stroke="#efe0bd" stroke-width="0.9" transform="rotate(-16)" opacity="0.55"/>'
+    earth_moon = '<g><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"/><circle cx="11" cy="0" r="1.9" fill="#CBD5E1"/></g>'
+    earth_land = '<path d="M -2.6 -3 Q -0.6 -4.4 1.3 -2.6 Q 3.2 -1.3 1.9 0.6 Q -1.3 1.9 -3.2 0 Q -3.9 -1.9 -2.6 -3 Z" fill="#4ADE80" opacity="0.85"/>'
+    uranus_ring = '<ellipse rx="11.5" ry="3.4" fill="none" stroke="#a5f3fc" stroke-width="1" transform="rotate(70)" opacity="0.6"/>'
+
+    # (rx, planet_r, orbital period in years -> dur via period^0.42)
+    P = [
+        ("mercury", 68,  3.2, 0.241, -2.1, "url(#mercuryG)", ""),
+        ("venus",   100, 5.0, 0.615, -5.3, "url(#venusG)", ""),
+        ("earth",   138, 5.5, 1.0,   -3.4, "url(#earthG)", earth_land + earth_moon),
+        ("mars",    175, 4.2, 1.88,  -9.8, "url(#marsG)", ""),
+        ("jupiter", 235, 13,  11.86, -14,  "url(#jupiterG)", jup_bands),
+        ("saturn",  295, 11,  29.46, -30,  "url(#saturnG)", saturn_ring),
+        ("uranus",  350, 7.0, 84.0,  -50,  "url(#uranusG)", uranus_ring),
+        ("neptune", 405, 6.8, 164.8, -70,  "url(#neptuneG)", ""),
+    ]
+    EARTH_BASE = 11.0
+    durs = {name: round(EARTH_BASE * (per ** 0.42), 1) for name, _, _, per, _, _, _ in P}
+    PLUTO_RX, PLUTO_DUR, PLUTO_BEG = 438, round(EARTH_BASE * (248 ** 0.42), 1), -40
+
+    ellipses_back, arcs_front, backs, fronts = [], [], [], []
+    for name, rx, r, per, beg, fill, extra in P:
+        ry = rx * FLAT
+        ellipses_back.append(
+            f'<ellipse cx="{scx}" cy="{scy}" rx="{rx}" ry="{ry:.1f}" fill="none" stroke="{CYAN_BRIGHT}" stroke-opacity="0.09" stroke-width="1" stroke-dasharray="2 6"/>')
+        arcs_front.append(
+            f'<path d="M {scx-rx:.1f} {scy:.1f} A {rx:.1f} {ry:.1f} 0 0 0 {scx+rx:.1f} {scy:.1f}" fill="none" stroke="{CYAN_BRIGHT}" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="2 6"/>')
+        backs.append(planet_copy(rx, durs[name], beg, body(r, fill, extra), "back"))
+        fronts.append(planet_copy(rx, durs[name], beg, body(r, fill, extra), "front"))
+
+    # pluto — inclined orbit (real pluto is tilted ~17°), tiny and defiant
+    pluto_ry = PLUTO_RX * FLAT
+    pluto_wrap = f'<g transform="rotate(-4 {scx} {scy})">'
+    ellipses_back.append(
+        f'{pluto_wrap}<ellipse cx="{scx}" cy="{scy}" rx="{PLUTO_RX}" ry="{pluto_ry:.1f}" fill="none" stroke="{PURPLE_BRIGHT}" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="1 7"/></g>')
+    backs.append(pluto_wrap + planet_copy(PLUTO_RX, PLUTO_DUR, PLUTO_BEG, body(2.2, "#C4B5FD"), "back") + "</g>")
+    fronts.append(pluto_wrap + planet_copy(PLUTO_RX, PLUTO_DUR, PLUTO_BEG, body(2.2, "#C4B5FD"), "front") + "</g>")
+
+    # asteroid belt between mars and jupiter
+    rngb = random.Random(2024)
+    belt = []
+    for _ in range(22):
+        a = rngb.uniform(0, 2 * math.pi)
+        rj = rngb.uniform(196, 214)
+        bx = scx + rj * math.cos(a)
+        by = scy + rj * FLAT * math.sin(a)
+        belt.append(
+            f'<circle cx="{bx:.1f}" cy="{by:.1f}" r="{rngb.uniform(0.6,1.2):.2f}" fill="#94A3B8">'
+            f'<animate attributeName="opacity" values="0.12;0.55;0.12" dur="{rngb.uniform(2.5,5):.2f}s" begin="-{rngb.uniform(0,4):.2f}s" repeatCount="indefinite"/></circle>')
+
     sun = f"""
 <g>
-  <circle cx="86" cy="336" r="86" fill="url(#sunHalo)">
-    <animate attributeName="opacity" values="0.65;1;0.65" dur="4.2s" repeatCount="indefinite"/>
+  <path d="M {scx-150} {scy-16} q 40 6 74 4" fill="none" stroke="{GOLD}" stroke-width="1.4" stroke-opacity="0.14" stroke-dasharray="5 9" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="0" to="56" dur="3.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M {scx-166} {scy+2} q 46 4 84 2" fill="none" stroke="{GOLD}" stroke-width="1.4" stroke-opacity="0.18" stroke-dasharray="5 9" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="0" to="56" dur="2.9s" repeatCount="indefinite"/>
+  </path>
+  <path d="M {scx-148} {scy+18} q 40 -4 72 -3" fill="none" stroke="{GOLD}" stroke-width="1.4" stroke-opacity="0.14" stroke-dasharray="5 9" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="0" to="56" dur="4.1s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="{scx}" cy="{scy}" r="64" fill="url(#sunHalo)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
   </circle>
   <g>
-    <animateTransform attributeName="transform" type="rotate" from="0 86 336" to="360 86 336" dur="70s" repeatCount="indefinite"/>
-    {''.join(f'<line x1="{86 + 44*math.cos(math.radians(a)):.1f}" y1="{336 + 44*math.sin(math.radians(a)):.1f}" x2="{86 + 58*math.cos(math.radians(a)):.1f}" y2="{336 + 58*math.sin(math.radians(a)):.1f}" stroke="{GOLD}" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>' for a in range(0, 360, 30))}
+    <animateTransform attributeName="transform" type="rotate" from="0 {scx} {scy}" to="360 {scx} {scy}" dur="64s" repeatCount="indefinite"/>
+    {''.join(f'<line x1="{scx + 37*math.cos(math.radians(a)):.1f}" y1="{scy + 37*math.sin(math.radians(a)):.1f}" x2="{scx + 48*math.cos(math.radians(a)):.1f}" y2="{scy + 48*math.sin(math.radians(a)):.1f}" stroke="{GOLD}" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>' for a in range(0, 360, 30))}
   </g>
-  <circle cx="86" cy="336" r="34" fill="url(#sunCore)" filter="url(#softGlow)">
-    <animate attributeName="r" values="34;36;34" dur="4.2s" repeatCount="indefinite"/>
+  <circle cx="{scx}" cy="{scy}" r="28" fill="url(#sunCore)" filter="url(#softGlow)">
+    <animate attributeName="r" values="28;29.5;28" dur="4.2s" repeatCount="indefinite"/>
   </circle>
 </g>
 """
-    # orbit arcs around the sun
-    orbit_radii = [88, 143, 208, 268, 358, 478, 588, 678]
-    orbits = "\n".join(
-        f'<circle cx="86" cy="336" r="{r}" fill="none" stroke="{CYAN_BRIGHT}" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="2 7">'
-        f'<animate attributeName="stroke-dashoffset" from="0" to="90" dur="{40+i*8}s" repeatCount="indefinite"/></circle>'
-        for i, r in enumerate(orbit_radii)
-    )
 
-    def planet(x, r, fill, dur, extra="", beg=0.0):
-        return f"""<g transform="translate({x} 336)">
-  <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -7; 0 0" dur="{dur}s" begin="{beg}s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
-    <circle r="{r+4}" fill="{fill.replace('url(#','url(#') if fill.startswith('url') else fill}" opacity="0.18"/>
-    <circle r="{r}" fill="{fill}"/>
-    {extra}
+    labels = f"""
+<g font-family="{MONO}">
+  <animateMotion path="{opath(138)}" dur="{durs['earth']}s" begin="-3.4s" repeatCount="indefinite"/>
+  <g transform="translate(0 -26)">
+    <text text-anchor="middle" font-size="11.5" fill="{CYAN_BRIGHT}" letter-spacing="1">you are here
+      <animate attributeName="opacity" values="0.9;0.55;0.9" dur="2.6s" repeatCount="indefinite"/>
+    </text>
+    <path d="M 0 12 l -4 -7 h 8 z" fill="{CYAN_BRIGHT}">
+      <animate attributeName="opacity" values="1;0.15;1" dur="1.3s" repeatCount="indefinite"/>
+    </path>
   </g>
+</g>
+<g font-family="{MONO}" transform="rotate(-4 {scx} {scy})">
+  <animateMotion path="{opath(PLUTO_RX)}" dur="{PLUTO_DUR}s" begin="{PLUTO_BEG}s" repeatCount="indefinite"/>
+  <text x="0" y="15" text-anchor="middle" font-size="7.5" fill="{MUTED}" opacity="0.9">pluto</text>
+  <text x="0" y="24" text-anchor="middle" font-size="6.5" fill="{MUTED}" opacity="0.65">(still counts)</text>
 </g>"""
 
-    jup_bands = f'<path d="M -13 -5 Q 0 -8 13 -5" stroke="#8a5a2b" stroke-width="2" fill="none" opacity="0.55"/><path d="M -15 2 Q 0 -1 15 2" stroke="#8a5a2b" stroke-width="2.4" fill="none" opacity="0.5"/><path d="M -12 8 Q 0 6 12 8" stroke="#e8c496" stroke-width="1.8" fill="none" opacity="0.6"/>'
-    saturn_ring = f'<ellipse rx="27" ry="8" fill="none" stroke="#D9C08C" stroke-width="2.6" transform="rotate(-18)" opacity="0.9"/><ellipse rx="21" ry="5.6" fill="none" stroke="#efe0bd" stroke-width="1" transform="rotate(-18)" opacity="0.55"/>'
-    earth_moon = f'<g><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="7s" repeatCount="indefinite"/><circle cx="16" cy="0" r="2.6" fill="#CBD5E1"/></g>'
-    uranus_ring = '<ellipse rx="15" ry="4.6" fill="none" stroke="#a5f3fc" stroke-width="1.2" transform="rotate(70)" opacity="0.6"/>'
-
-    planets = "\n".join([
-        planet(174, 5, "url(#mercuryG)", 5.2, beg=-1),
-        planet(229, 7.5, "url(#venusG)", 6.1, beg=-2.5),
-        planet(294, 9, "url(#earthG)", 5.6, extra=earth_moon + f'<path d="M -4 -5 Q -1 -7 2 -4 Q 5 -2 3 1 Q -2 3 -5 0 Q -6 -3 -4 -5 Z" fill="#4ADE80" opacity="0.85"/><path d="M 2 4 q 3 -1 4 1 q -2 2 -4 1 z" fill="#4ADE80" opacity="0.8"/>', beg=0),
-        planet(354, 6.5, "url(#marsG)", 6.6, beg=-3.4),
-        planet(444, 17, "url(#jupiterG)", 7.6, extra=jup_bands, beg=-1.8),
-        planet(564, 14, "url(#saturnG)", 8.2, extra=saturn_ring, beg=-4.2),
-        planet(674, 9.5, "url(#uranusG)", 7.1, extra=uranus_ring, beg=-2.2),
-        planet(764, 9, "url(#neptuneG)", 6.4, beg=-5),
-    ])
-
-    pluto = f"""<g transform="translate(842 336)">
-  <circle r="2.6" fill="#C4B5FD"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
-  <text x="0" y="16" text-anchor="middle" font-family="{MONO}" font-size="7.5" fill="{MUTED}" opacity="0.85">pluto</text>
-  <text x="0" y="25" text-anchor="middle" font-family="{MONO}" font-size="6.5" fill="{MUTED}" opacity="0.6">(still counts)</text>
-</g>"""
-
-    you_are_here = f"""<g font-family="{MONO}">
-  <text x="294" y="288" text-anchor="middle" font-size="12.5" fill="{CYAN_BRIGHT}" letter-spacing="1">you are here</text>
-  <path d="M 294 296 l -5 -8 h 10 z" fill="{CYAN_BRIGHT}" transform="rotate(180 294 292)">
-    <animate attributeName="opacity" values="1;0.15;1" dur="1.3s" repeatCount="indefinite"/>
-  </path>
+    system = f"""
+<g>
+  <animateTransform attributeName="transform" type="translate" values="0 0; 9 -5; 0 0; -9 5; 0 0" dur="38s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"/>
+  {''.join(ellipses_back)}
+  {''.join(belt)}
+  {''.join(backs)}
+  {sun}
+  {''.join(arcs_front)}
+  {''.join(fronts)}
+  {labels}
 </g>"""
 
     ufo = f"""<g>
@@ -298,11 +375,7 @@ def gen_hero():
 {nebulas}
 {star_field}
 {meteors}
-{orbits}
-{sun}
-{planets}
-{pluto}
-{you_are_here}
+{system}
 {ufo}
 {title}
 </g>
@@ -447,13 +520,21 @@ def gen_divider():
 # 4. TECH ORBIT — rotating stack rings
 # =====================================================================
 def gen_orbit():
-    W, H = 860, 620
-    cx, cy = W / 2, 316
+    W, H = 900, 700
+    cx, cy = W / 2, 345
     rings = [
-        # (radius, duration, direction 1=cw, items [(label, color, start_angle)])
-        (104, 26, 1, [("PHP", "#9FA8DA"), ("Java", "#F89820"), ("JavaScript", "#F7DF1E"), ("Golang", "#00ADD8")]),
-        (182, 40, -1, [("Laravel", "#FF2D20"), ("React", "#61DAFB"), ("Node.js", "#4ADE80"), ("Bootstrap", "#B197FC")]),
-        (262, 58, 1, [("MySQL", "#5FA8E8"), ("PostgreSQL", "#699ECA"), ("Redis", "#FF6B6B"), ("Git", "#F05032"), ("GitHub", "#E0E7FF")]),
+        # (radius, duration, direction 1=cw, items [(label, color)])
+        (118, 26, 1, [("PHP", "#9FA8DA"), ("JavaScript", "#F7DF1E"), ("Java", "#F89820"),
+                      ("TypeScript", "#60A5FA"), ("Python", "#A3E635"), ("Golang", "#00ADD8")]),
+        (185, 38, -1, [("Laravel", "#FF2D20"), ("React", "#61DAFB"), ("Inertia.js", "#C4B5FD"),
+                       ("Flask", "#F1F5F9"), ("Node.js", "#4ADE80"), ("Tailwind", "#2DD4BF"),
+                       ("Vite", "#C084FC"), ("Bootstrap", "#8B5CF6")]),
+        (250, 52, 1, [("MySQL", "#5FA8E8"), ("PostgreSQL", "#699ECA"), ("Redis", "#FF6B6B"),
+                      ("AWS S3", "#7BC96F"), ("OpenCV", "#4DD0E1"), ("Tesseract", "#FBBF24"),
+                      ("OpenAI", "#34D399"), ("Claude", "#E8956D")]),
+        (312, 68, -1, [("AWS", "#FF9900"), ("EC2", "#FFB84D"), ("Cloudflare", "#F6821F"),
+                       ("CF Pages", "#FCD34D"), ("Docker", "#38BDF8"), ("GitHub Actions", "#58A6FF"),
+                       ("Git", "#F05032"), ("GitHub", "#E0E7FF")]),
     ]
 
     ring_svgs = []
@@ -514,13 +595,14 @@ def gen_orbit():
 </g>"""
 
     legend = f"""
-<g font-family="{MONO}" font-size="11">
-  <circle cx="34" cy="{H-52}" r="3" fill="{GOLD}"/><text x="44" y="{H-48}" fill="{MUTED}">INNER ORBIT :: LANGUAGES</text>
-  <circle cx="34" cy="{H-32}" r="3" fill="{CYAN}"/><text x="44" y="{H-28}" fill="{MUTED}">MID ORBIT :: FRAMEWORKS &amp; RUNTIME</text>
-  <circle cx="34" cy="{H-12}" r="3" fill="{PURPLE_BRIGHT}"/><text x="44" y="{H-8}" fill="{MUTED}">OUTER ORBIT :: DATA &amp; TOOLS</text>
+<g font-family="{MONO}" font-size="10.5">
+  <circle cx="30" cy="{H-66}" r="3" fill="{GOLD}"/><text x="40" y="{H-62}" fill="{MUTED}">ORBIT I :: LANGUAGES</text>
+  <circle cx="30" cy="{H-48}" r="3" fill="{CYAN}"/><text x="40" y="{H-44}" fill="{MUTED}">ORBIT II :: FRAMEWORKS &amp; UI</text>
+  <circle cx="30" cy="{H-30}" r="3" fill="#34D399"/><text x="40" y="{H-26}" fill="{MUTED}">ORBIT III :: DATA &amp; AI</text>
+  <circle cx="30" cy="{H-12}" r="3" fill="{PURPLE_BRIGHT}"/><text x="40" y="{H-8}" fill="{MUTED}">ORBIT IV :: CLOUD &amp; DEVOPS</text>
 </g>"""
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Tech stack: PHP, Java, JavaScript, Golang, Laravel, React, Node.js, Bootstrap, MySQL, PostgreSQL, Redis, Git, GitHub">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Tech stack orbital map — Languages: PHP, JavaScript, Java, TypeScript, Python, Golang. Frameworks and UI: Laravel, React, Inertia.js, Flask, Node.js, Tailwind, Vite, Bootstrap. Data and AI: MySQL, PostgreSQL, Redis, AWS S3, OpenCV, Tesseract, OpenAI, Claude. Cloud and DevOps: AWS, EC2, Cloudflare, CF Pages, Docker, GitHub Actions, Git, GitHub">
 <defs>{COMMON_DEFS}
 <radialGradient id="orbitBg" cx="50%" cy="45%" r="80%">
   <stop offset="0" stop-color="#0D1430"/>

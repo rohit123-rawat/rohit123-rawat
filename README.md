@@ -7,7 +7,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 
 <div align="center">
-  <img src="assets/hero.svg" width="100%" alt="Rohit Rawat — Navigating the Code Universe. An animated solar system: the sun, eight orbiting planets, and a marker on Earth reading 'you are here'."/>
+  <img src="assets/hero.svg" width="100%" alt="Rohit Rawat — Navigating the Code Universe. A living solar system: planets revolve around the sun at their real relative speeds, passing behind and in front of it, with a 'you are here' marker riding Earth."/>
 </div>
 
 <div align="center">
@@ -40,7 +40,7 @@
 ## 🚀 Rocket Fuel — Tech Stack
 
 <div align="center">
-  <img src="assets/tech-orbit.svg" width="830" alt="Animated orbital map of my tech stack — inner orbit: PHP, Java, JavaScript, Golang · mid orbit: Laravel, React, Node.js, Bootstrap · outer orbit: MySQL, PostgreSQL, Redis, Git, GitHub"/>
+  <img src="assets/tech-orbit.svg" width="860" alt="Animated orbital map of my tech stack — Languages: PHP, JavaScript, Java, TypeScript, Python, Golang · Frameworks &amp; UI: Laravel, React, Inertia.js, Flask, Node.js, Tailwind, Vite, Bootstrap · Data &amp; AI: MySQL, PostgreSQL, Redis, AWS S3, OpenCV, Tesseract, OpenAI, Claude · Cloud &amp; DevOps: AWS, EC2, Cloudflare, CF Pages, Docker, GitHub Actions, Git, GitHub"/>
 </div>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
