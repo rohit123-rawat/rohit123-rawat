@@ -23,6 +23,9 @@ jobs:
 
       - name: Rebuild dashboard SVG
         env:
+          # PROFILE_TOKEN: fine-grained PAT (metadata read on all repos) so
+          # private repos are counted. Falls back to public-only without it.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update_dashboard.py
 
