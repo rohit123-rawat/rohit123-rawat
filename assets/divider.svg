@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="34" viewBox="0 0 900 34" role="img" aria-label="">
+<defs>
+<linearGradient id="beam" gradientUnits="userSpaceOnUse" x1="14" y1="20" x2="886" y2="20">
+  <stop offset="0" stop-color="#6E48AA" stop-opacity="0"/>
+  <stop offset="0.2" stop-color="#6E48AA" stop-opacity="0.75"/>
+  <stop offset="0.5" stop-color="#22D3EE" stop-opacity="0.9"/>
+  <stop offset="0.8" stop-color="#6E48AA" stop-opacity="0.75"/>
+  <stop offset="1" stop-color="#6E48AA" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="cometTail" x1="1" y1="0" x2="0" y2="0">
+  <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.3" stop-color="#7DF9FF" stop-opacity="0.55"/>
+  <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+</linearGradient>
+<filter id="dGlow" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="2.5" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<line x1="14" y1="20" x2="886" y2="20" stroke="url(#beam)" stroke-width="5" opacity="0.28"/>
+<line x1="14" y1="20" x2="886" y2="20" stroke="url(#beam)" stroke-width="2.2"/>
+<g>
+  <circle cx="150" cy="20" r="1.6" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;1;0.1" dur="2.6s" repeatCount="indefinite"/></circle>
+  <circle cx="450" cy="20" r="1.6" fill="#E0E7FF"><animate attributeName="opacity" values="1;0.1;1" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="750" cy="20" r="1.6" fill="#A78BFA"><animate attributeName="opacity" values="0.1;1;0.1" dur="2.2s" repeatCount="indefinite"/></circle>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.8;0.86;1" dur="4.4s" repeatCount="indefinite"/>
+  <animateMotion path="M -60 20 L 960 20" keyPoints="0;1;1" keyTimes="0;0.86;1" calcMode="linear" dur="4.4s" repeatCount="indefinite"/>
+  <polygon points="0,0 -74,-2.6 -74,2.6" fill="url(#cometTail)"/>
+  <circle r="3" fill="#FFFFFF" filter="url(#dGlow)"/>
+</g>
+</svg>

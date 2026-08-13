@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="620" viewBox="0 0 860 620" role="img" aria-label="Tech stack: PHP, Java, JavaScript, Golang, Laravel, React, Node.js, Bootstrap, MySQL, PostgreSQL, Redis, Git, GitHub">
+<defs>
+<linearGradient id="meteorTail" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="-90" y2="0">
+  <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.35" stop-color="#7DF9FF" stop-opacity="0.5"/>
+  <stop offset="1" stop-color="#7DF9FF" stop-opacity="0"/>
+</linearGradient>
+<filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="4" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<filter id="bigGlow" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="9" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+<radialGradient id="orbitBg" cx="50%" cy="45%" r="80%">
+  <stop offset="0" stop-color="#0D1430"/>
+  <stop offset="1" stop-color="#030614"/>
+</radialGradient>
+<radialGradient id="coreG" cx="40%" cy="35%" r="80%">
+  <stop offset="0" stop-color="#A78BFA"/>
+  <stop offset="1" stop-color="#7C3AED"/>
+</radialGradient>
+</defs>
+<rect x="0" y="0" width="860" height="620" rx="16" fill="url(#orbitBg)"/>
+<circle cx="681.3" cy="205.5" r="0.92" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.02s" begin="-2.88s" repeatCount="indefinite"/></circle>
+<circle cx="849.7" cy="152.7" r="1.2" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.98s" begin="-0.14s" repeatCount="indefinite"/></circle>
+<circle cx="814.0" cy="113.6" r="1.43" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.64s" begin="-0.85s" repeatCount="indefinite"/></circle>
+<circle cx="83.2" cy="477.2" r="1.18" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.79s" begin="-0.2s" repeatCount="indefinite"/></circle>
+<circle cx="720.1" cy="428.3" r="1.51" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.35s" begin="-1.88s" repeatCount="indefinite"/></circle>
+<circle cx="604.2" cy="137.2" r="1.0" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.33s" begin="-1.07s" repeatCount="indefinite"/></circle>
+<circle cx="76.6" cy="478.9" r="1.18" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.95s" begin="-1.85s" repeatCount="indefinite"/></circle>
+<circle cx="782.6" cy="595.1" r="1.02" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.9s" begin="-3.78s" repeatCount="indefinite"/></circle>
+<circle cx="349.4" cy="359.5" r="1.25" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.77s" begin="-1.31s" repeatCount="indefinite"/></circle>
+<circle cx="630.0" cy="471.1" r="1.05" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.18s" begin="-1.38s" repeatCount="indefinite"/></circle>
+<circle cx="636.5" cy="466.1" r="1.09" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="5.45s" begin="-4.93s" repeatCount="indefinite"/></circle>
+<circle cx="588.1" cy="43.6" r="1.12" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.52s" begin="-1.34s" repeatCount="indefinite"/></circle>
+<circle cx="24.4" cy="301.3" r="1.02" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.01s" begin="-0.25s" repeatCount="indefinite"/></circle>
+<circle cx="414.4" cy="466.4" r="1.38" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.45s" begin="-1.07s" repeatCount="indefinite"/></circle>
+<circle cx="569.9" cy="289.8" r="1.48" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.36s" begin="-2.02s" repeatCount="indefinite"/></circle>
+<circle cx="211.1" cy="136.0" r="1.45" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.57s" begin="-0.06s" repeatCount="indefinite"/></circle>
+<circle cx="814.9" cy="150.0" r="1.15" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="5.38s" begin="-3.1s" repeatCount="indefinite"/></circle>
+<circle cx="625.1" cy="260.4" r="1.16" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.65s" begin="-1.51s" repeatCount="indefinite"/></circle>
+<circle cx="464.4" cy="182.6" r="1.49" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.07s" begin="-0.29s" repeatCount="indefinite"/></circle>
+<circle cx="25.8" cy="94.8" r="0.78" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.79s" begin="-2.57s" repeatCount="indefinite"/></circle>
+<circle cx="664.4" cy="109.2" r="1.56" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.99s" begin="-2.62s" repeatCount="indefinite"/></circle>
+<circle cx="457.3" cy="500.7" r="1.06" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.96s" begin="-1.41s" repeatCount="indefinite"/></circle>
+<circle cx="765.4" cy="61.7" r="1.17" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="5.2s" begin="-4.03s" repeatCount="indefinite"/></circle>
+<circle cx="824.9" cy="462.9" r="1.6" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="5.45s" begin="-4.18s" repeatCount="indefinite"/></circle>
+<circle cx="560.6" cy="246.3" r="1.18" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.32s" begin="-2.48s" repeatCount="indefinite"/></circle>
+<circle cx="482.0" cy="434.2" r="0.98" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.96s" begin="-0.31s" repeatCount="indefinite"/></circle>
+<circle cx="125.6" cy="567.7" r="1.33" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="5.19s" begin="-3.06s" repeatCount="indefinite"/></circle>
+<circle cx="481.3" cy="416.3" r="0.75" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="5.0s" begin="-4.81s" repeatCount="indefinite"/></circle>
+<circle cx="110.7" cy="425.1" r="0.82" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.28s" begin="-1.47s" repeatCount="indefinite"/></circle>
+<circle cx="579.5" cy="449.4" r="1.22" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.3s" begin="-1.62s" repeatCount="indefinite"/></circle>
+<circle cx="76.2" cy="282.3" r="1.26" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.17s" begin="-1.62s" repeatCount="indefinite"/></circle>
+<circle cx="135.0" cy="252.8" r="1.58" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.5s" begin="-0.38s" repeatCount="indefinite"/></circle>
+<circle cx="325.7" cy="86.0" r="1.53" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.86s" begin="-4.55s" repeatCount="indefinite"/></circle>
+<circle cx="541.9" cy="505.0" r="1.19" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.24s" begin="-1.23s" repeatCount="indefinite"/></circle>
+<circle cx="841.9" cy="242.9" r="1.34" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.58s" begin="-0.93s" repeatCount="indefinite"/></circle>
+<circle cx="487.0" cy="452.4" r="0.99" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.66s" begin="-1.54s" repeatCount="indefinite"/></circle>
+<circle cx="799.4" cy="242.0" r="1.29" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.41s" begin="-0.33s" repeatCount="indefinite"/></circle>
+<circle cx="670.3" cy="403.6" r="1.28" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.19s" begin="-2.06s" repeatCount="indefinite"/></circle>
+<circle cx="170.7" cy="310.4" r="1.41" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="2.89s" begin="-2.3s" repeatCount="indefinite"/></circle>
+<circle cx="798.4" cy="216.8" r="0.83" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.84s" begin="-1.72s" repeatCount="indefinite"/></circle>
+<circle cx="264.1" cy="153.6" r="1.55" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.06s" begin="-0.28s" repeatCount="indefinite"/></circle>
+<circle cx="253.0" cy="588.9" r="1.52" fill="#A78BFA"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.51s" begin="-1.84s" repeatCount="indefinite"/></circle>
+<circle cx="364.8" cy="250.0" r="1.44" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="4.4s" begin="-3.54s" repeatCount="indefinite"/></circle>
+<circle cx="465.1" cy="293.6" r="1.52" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.35s" begin="-2.91s" repeatCount="indefinite"/></circle>
+<circle cx="370.9" cy="461.0" r="0.72" fill="#7DF9FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="5.31s" begin="-2.33s" repeatCount="indefinite"/></circle>
+<circle cx="741.4" cy="418.4" r="0.72" fill="#E0E7FF"><animate attributeName="opacity" values="0.1;0.85;0.1" dur="3.36s" begin="-3.05s" repeatCount="indefinite"/></circle>
+<circle cx="430.0" cy="316" r="104" fill="none" stroke="#7DF9FF" stroke-opacity="0.13" stroke-width="1.1" stroke-dasharray="3 7"><animate attributeName="stroke-dashoffset" from="0" to="100" dur="44s" repeatCount="indefinite"/></circle><g>
+  <animateTransform attributeName="transform" type="rotate" from="0 430.0 316" to="360 430.0 316" dur="26s" repeatCount="indefinite"/>
+  <g transform="translate(430.0 212.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="26s" repeatCount="indefinite"/>
+    <rect x="-25.9" y="-15" width="51.8" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#9FA8DA" stroke-width="1.5"/>
+    <circle cx="-12.9" cy="0" r="3.4" fill="#9FA8DA">
+      <animate attributeName="opacity" values="1;0.35;1" dur="1.83s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-2.9" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#9FA8DA">PHP</text>
+  </g>
+</g><circle cx="503.5" cy="242.5" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="2.91s" repeatCount="indefinite"/></circle><g transform="translate(534.0 316.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="26s" repeatCount="indefinite"/>
+    <rect x="-30.2" y="-15" width="60.4" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#F89820" stroke-width="1.5"/>
+    <circle cx="-17.2" cy="0" r="3.4" fill="#F89820">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.83s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-7.2" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#F89820">Java</text>
+  </g>
+</g><circle cx="503.5" cy="389.5" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.41s" repeatCount="indefinite"/></circle><g transform="translate(430.0 420.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="26s" repeatCount="indefinite"/>
+    <rect x="-56.0" y="-15" width="112.0" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#F7DF1E" stroke-width="1.5"/>
+    <circle cx="-43.0" cy="0" r="3.4" fill="#F7DF1E">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.77s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-33.0" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#F7DF1E">JavaScript</text>
+  </g>
+</g><circle cx="356.5" cy="389.5" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="2.87s" repeatCount="indefinite"/></circle><g transform="translate(326.0 316.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="26s" repeatCount="indefinite"/>
+    <rect x="-38.8" y="-15" width="77.6" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#00ADD8" stroke-width="1.5"/>
+    <circle cx="-25.8" cy="0" r="3.4" fill="#00ADD8">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.88s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-15.8" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#00ADD8">Golang</text>
+  </g>
+</g><circle cx="356.5" cy="242.5" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.07s" repeatCount="indefinite"/></circle>
+</g><circle cx="430.0" cy="316" r="182" fill="none" stroke="#7DF9FF" stroke-opacity="0.13" stroke-width="1.1" stroke-dasharray="3 7"><animate attributeName="stroke-dashoffset" from="0" to="-100" dur="58s" repeatCount="indefinite"/></circle><g>
+  <animateTransform attributeName="transform" type="rotate" from="0 430.0 316" to="-360 430.0 316" dur="40s" repeatCount="indefinite"/>
+  <g transform="translate(430.0 134.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="40s" repeatCount="indefinite"/>
+    <rect x="-43.1" y="-15" width="86.2" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#FF2D20" stroke-width="1.5"/>
+    <circle cx="-30.1" cy="0" r="3.4" fill="#FF2D20">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.53s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-20.1" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#FF2D20">Laravel</text>
+  </g>
+</g><circle cx="558.7" cy="187.3" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="2.39s" repeatCount="indefinite"/></circle><g transform="translate(612.0 316.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="40s" repeatCount="indefinite"/>
+    <rect x="-34.5" y="-15" width="69.0" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#61DAFB" stroke-width="1.5"/>
+    <circle cx="-21.5" cy="0" r="3.4" fill="#61DAFB">
+      <animate attributeName="opacity" values="1;0.35;1" dur="3.14s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-11.5" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#61DAFB">React</text>
+  </g>
+</g><circle cx="558.7" cy="444.7" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.85s" repeatCount="indefinite"/></circle><g transform="translate(430.0 498.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="40s" repeatCount="indefinite"/>
+    <rect x="-43.1" y="-15" width="86.2" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#4ADE80" stroke-width="1.5"/>
+    <circle cx="-30.1" cy="0" r="3.4" fill="#4ADE80">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.35s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-20.1" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#4ADE80">Node.js</text>
+  </g>
+</g><circle cx="301.3" cy="444.7" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.33s" repeatCount="indefinite"/></circle><g transform="translate(248.0 316.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="40s" repeatCount="indefinite"/>
+    <rect x="-51.7" y="-15" width="103.4" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#B197FC" stroke-width="1.5"/>
+    <circle cx="-38.7" cy="0" r="3.4" fill="#B197FC">
+      <animate attributeName="opacity" values="1;0.35;1" dur="1.94s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-28.7" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#B197FC">Bootstrap</text>
+  </g>
+</g><circle cx="301.3" cy="187.3" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="2.44s" repeatCount="indefinite"/></circle>
+</g><circle cx="430.0" cy="316" r="262" fill="none" stroke="#7DF9FF" stroke-opacity="0.13" stroke-width="1.1" stroke-dasharray="3 7"><animate attributeName="stroke-dashoffset" from="0" to="100" dur="76s" repeatCount="indefinite"/></circle><g>
+  <animateTransform attributeName="transform" type="rotate" from="0 430.0 316" to="360 430.0 316" dur="58s" repeatCount="indefinite"/>
+  <g transform="translate(430.0 54.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="58s" repeatCount="indefinite"/>
+    <rect x="-34.5" y="-15" width="69.0" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#5FA8E8" stroke-width="1.5"/>
+    <circle cx="-21.5" cy="0" r="3.4" fill="#5FA8E8">
+      <animate attributeName="opacity" values="1;0.35;1" dur="1.84s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-11.5" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#5FA8E8">MySQL</text>
+  </g>
+</g><circle cx="584.0" cy="104.0" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.23s" repeatCount="indefinite"/></circle><g transform="translate(679.2 235.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="58s" repeatCount="indefinite"/>
+    <rect x="-56.0" y="-15" width="112.0" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#699ECA" stroke-width="1.5"/>
+    <circle cx="-43.0" cy="0" r="3.4" fill="#699ECA">
+      <animate attributeName="opacity" values="1;0.35;1" dur="1.87s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-33.0" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#699ECA">PostgreSQL</text>
+  </g>
+</g><circle cx="679.2" cy="397.0" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.43s" repeatCount="indefinite"/></circle><g transform="translate(584.0 528.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="58s" repeatCount="indefinite"/>
+    <rect x="-34.5" y="-15" width="69.0" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#FF6B6B" stroke-width="1.5"/>
+    <circle cx="-21.5" cy="0" r="3.4" fill="#FF6B6B">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.57s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-11.5" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#FF6B6B">Redis</text>
+  </g>
+</g><circle cx="430.0" cy="578.0" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="2.77s" repeatCount="indefinite"/></circle><g transform="translate(276.0 528.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="58s" repeatCount="indefinite"/>
+    <rect x="-25.9" y="-15" width="51.8" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#F05032" stroke-width="1.5"/>
+    <circle cx="-12.9" cy="0" r="3.4" fill="#F05032">
+      <animate attributeName="opacity" values="1;0.35;1" dur="2.59s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-2.9" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#F05032">Git</text>
+  </g>
+</g><circle cx="180.8" cy="397.0" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.13s" repeatCount="indefinite"/></circle><g transform="translate(180.8 235.0)">
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="-360" dur="58s" repeatCount="indefinite"/>
+    <rect x="-38.8" y="-15" width="77.6" height="30" rx="15" fill="#0D1117" fill-opacity="0.94" stroke="#E0E7FF" stroke-width="1.5"/>
+    <circle cx="-25.8" cy="0" r="3.4" fill="#E0E7FF">
+      <animate attributeName="opacity" values="1;0.35;1" dur="1.67s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-15.8" y="4.6" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#E0E7FF">GitHub</text>
+  </g>
+</g><circle cx="276.0" cy="104.0" r="2" fill="#7DF9FF" opacity="0.5"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="3.06s" repeatCount="indefinite"/></circle>
+</g>
+
+<g>
+  <circle cx="430.0" cy="316" r="30" fill="none" stroke="#A78BFA" stroke-width="1.4" opacity="0">
+    <animate attributeName="r" values="30;58" dur="3.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="430.0" cy="316" r="30" fill="none" stroke="#22D3EE" stroke-width="1.4" opacity="0">
+    <animate attributeName="r" values="30;58" dur="3.2s" begin="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0" dur="3.2s" begin="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="430.0" cy="316" r="30" fill="url(#coreG)" filter="url(#bigGlow)">
+    <animate attributeName="r" values="30;32;30" dur="3.4s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M 430.0 303 C 431.6 312, 434.0 314.4, 443.0 316 C 434.0 317.6, 431.6 320, 430.0 329 C 428.4 320, 426.0 317.6, 417.0 316 C 426.0 314.4, 428.4 312, 430.0 303 Z" fill="#FFFFFF">
+    <animateTransform attributeName="transform" type="rotate" from="0 430.0 316" to="360 430.0 316" dur="14s" repeatCount="indefinite"/>
+  </path>
+  <text x="430.0" y="372" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="11.5" letter-spacing="3" fill="#A78BFA" opacity="0.9">CORE SYSTEMS</text>
+</g>
+
+<g font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="11">
+  <circle cx="34" cy="568" r="3" fill="#FBBF24"/><text x="44" y="572" fill="#8B949E">INNER ORBIT :: LANGUAGES</text>
+  <circle cx="34" cy="588" r="3" fill="#22D3EE"/><text x="44" y="592" fill="#8B949E">MID ORBIT :: FRAMEWORKS &amp; RUNTIME</text>
+  <circle cx="34" cy="608" r="3" fill="#A78BFA"/><text x="44" y="612" fill="#8B949E">OUTER ORBIT :: DATA &amp; TOOLS</text>
+</g>
+<rect x="0.5" y="0.5" width="859" height="619" rx="16" fill="none" stroke="#26315c" stroke-opacity="0.55"/>
+</svg>
