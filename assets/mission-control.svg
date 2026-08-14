@@ -38,7 +38,7 @@
 <g font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10.5">
   <circle cx="552" cy="29" r="3.4" fill="#4ADE80"><animate attributeName="opacity" values="1;0.25;1" dur="1.4s" repeatCount="indefinite"/></circle>
   <text x="562" y="33" fill="#4ADE80" letter-spacing="1">LINK ESTABLISHED</text>
-  <text x="870" y="33" text-anchor="end" fill="#8B949E">SYNC 2026-08-13</text>
+  <text x="870" y="33" text-anchor="end" fill="#8B949E">SYNC 2026-08-14</text>
 </g>
 <line x1="20" y1="46" x2="880" y2="46" stroke="#22D3EE" stroke-opacity="0.25" stroke-width="1"/>
 
@@ -72,9 +72,9 @@
   <circle cx="392" cy="150" r="27" fill="none" stroke="#22D3EE" stroke-opacity="0.16" stroke-width="5"/>
   <circle cx="392" cy="150" r="27" fill="none" stroke="#22D3EE" stroke-width="5" stroke-linecap="round"
     stroke-dasharray="169.65" stroke-dashoffset="169.65" transform="rotate(-90 392 150)">
-    <animate attributeName="stroke-dashoffset" from="169.65" to="14.14" begin="0.5s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.25 1"/>
+    <animate attributeName="stroke-dashoffset" from="169.65" to="138.54" begin="0.5s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.25 1"/>
   </circle>
-  <text x="392" y="158" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="800" fill="#E0E7FF">55</text>
+  <text x="392" y="158" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="800" fill="#E0E7FF">11</text>
   <text x="392" y="205" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10.5" letter-spacing="1.6" fill="#8B949E">REPOSITORIES</text>
   <circle cx="392" cy="112" r="2.4" fill="#22D3EE">
     <animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/>
@@ -94,9 +94,9 @@
   <circle cx="692" cy="150" r="27" fill="none" stroke="#FBBF24" stroke-opacity="0.16" stroke-width="5"/>
   <circle cx="692" cy="150" r="27" fill="none" stroke="#FBBF24" stroke-width="5" stroke-linecap="round"
     stroke-dasharray="169.65" stroke-dashoffset="169.65" transform="rotate(-90 692 150)">
-    <animate attributeName="stroke-dashoffset" from="169.65" to="37.32" begin="0.5s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.25 1"/>
+    <animate attributeName="stroke-dashoffset" from="169.65" to="159.47" begin="0.5s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.25 1"/>
   </circle>
-  <text x="692" y="158" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="800" fill="#E0E7FF">39</text>
+  <text x="692" y="158" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="800" fill="#E0E7FF">2</text>
   <text x="692" y="205" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10.5" letter-spacing="1.6" fill="#8B949E">STARS EARNED</text>
   <circle cx="692" cy="112" r="2.4" fill="#FBBF24">
     <animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/>
