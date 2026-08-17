@@ -745,6 +745,108 @@ def gen_mission_control_template():
 
 
 # =====================================================================
+# 5b. FLIGHT LOG — contribution streak card (template only)
+#     Replaces streak-stats.demolab.com, which answers too slowly for
+#     GitHub's image proxy (camo times out at ~4s → broken image).
+#     Placeholders are filled with live GraphQL data by
+#     scripts/update_streak.py, which also injects the {TRAIL} dots.
+# =====================================================================
+def gen_streak_template():
+    W, H = 900, 264
+    cx, cy, R = 450, 112, 42  # streak ring
+    C = 2 * math.pi * R
+    tail_deg = 52  # comet tail sweep behind the head
+    tx = cx + R * math.cos(math.radians(-tail_deg))
+    ty = cy + R * math.sin(math.radians(-tail_deg))
+
+    grid_lines = []
+    for gx in range(60, W, 60):
+        grid_lines.append(f'<line x1="{gx}" y1="34" x2="{gx}" y2="{H-10}" stroke="{CYAN}" stroke-opacity="0.035" stroke-width="1"/>')
+    for gy in range(60, H, 55):
+        grid_lines.append(f'<line x1="10" y1="{gy}" x2="{W-10}" y2="{gy}" stroke="{CYAN}" stroke-opacity="0.035" stroke-width="1"/>')
+    corners = []
+    for (cxx, cyy, sx, sy) in [(12, 12, 1, 1), (W-12, 12, -1, 1), (12, H-12, 1, -1), (W-12, H-12, -1, -1)]:
+        corners.append(f'<path d="M {cxx} {cyy+sy*16} L {cxx} {cyy} L {cxx+sx*16} {cyy}" fill="none" stroke="{CYAN}" stroke-width="2" stroke-opacity="0.8"/>')
+
+    def side_stat(x, value_ph, label, range_ph, color):
+        return f"""<g>
+  <circle cx="{x}" cy="72" r="2.4" fill="{color}"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
+  <text x="{x}" y="120" text-anchor="middle" font-family="{SANS}" font-size="36" font-weight="800" fill="{STAR_WHITE}">{value_ph}</text>
+  <text x="{x}" y="150" text-anchor="middle" font-family="{MONO}" font-size="10.5" letter-spacing="1.6" fill="{MUTED}">{label}</text>
+  <text x="{x}" y="169" text-anchor="middle" font-family="{MONO}" font-size="10" letter-spacing="0.5" fill="{MUTED}" opacity="0.8">{range_ph}</text>
+</g>"""
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="GitHub contribution streak">
+<defs>{COMMON_DEFS}
+<linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="{CYAN}" stop-opacity="0"/>
+  <stop offset="0.5" stop-color="{CYAN}" stop-opacity="0.06"/>
+  <stop offset="1" stop-color="{CYAN}" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="cometTail" gradientUnits="userSpaceOnUse" x1="{cx+R}" y1="{cy}" x2="{tx:.1f}" y2="{ty:.1f}">
+  <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.3" stop-color="{CYAN_BRIGHT}" stop-opacity="0.55"/>
+  <stop offset="1" stop-color="{CYAN_BRIGHT}" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="trailLine" gradientUnits="userSpaceOnUse" x1="150" y1="0" x2="850" y2="0">
+  <stop offset="0" stop-color="{PURPLE_BRIGHT}" stop-opacity="0.15"/>
+  <stop offset="1" stop-color="{CYAN_BRIGHT}" stop-opacity="0.45"/>
+</linearGradient>
+<clipPath id="skClip"><rect x="0" y="0" width="{W}" height="{H}" rx="16"/></clipPath>
+</defs>
+<rect x="0" y="0" width="{W}" height="{H}" rx="16" fill="{PANEL}"/>
+<g clip-path="url(#skClip)">
+{''.join(grid_lines)}
+<rect x="0" y="-90" width="{W}" height="80" fill="url(#scan)">
+  <animateTransform attributeName="transform" type="translate" from="0 0" to="0 {H+180}" dur="7s" begin="-3s" repeatCount="indefinite"/>
+</rect>
+</g>
+{''.join(corners)}
+<text x="30" y="34" font-family="{MONO}" font-size="13" letter-spacing="3" fill="{CYAN_BRIGHT}">&#9650; FLIGHT LOG — CONTRIBUTION STREAK</text>
+<g font-family="{MONO}" font-size="10.5">
+  <circle cx="{W-348}" cy="29" r="3.4" fill="{{STATUS_COLOR}}"><animate attributeName="opacity" values="1;0.25;1" dur="1.4s" repeatCount="indefinite"/></circle>
+  <text x="{W-338}" y="33" fill="{{STATUS_COLOR}}" letter-spacing="1">{{STATUS_TEXT}}</text>
+  <text x="{W-30}" y="33" text-anchor="end" fill="{MUTED}">SYNC {{SYNC_DATE}}</text>
+</g>
+<line x1="20" y1="46" x2="{W-20}" y2="46" stroke="{CYAN}" stroke-opacity="0.25" stroke-width="1"/>
+
+<line x1="300" y1="64" x2="300" y2="184" stroke="{CYAN}" stroke-opacity="0.15"/>
+<line x1="600" y1="64" x2="600" y2="184" stroke="{CYAN}" stroke-opacity="0.15"/>
+
+<!-- total contributions -->
+{side_stat(150, "{TOTAL}", "TOTAL CONTRIBUTIONS", "{TOTAL_RANGE}", PURPLE_BRIGHT)}
+
+<!-- current streak: ring filled to current/longest, comet orbiting -->
+<g>
+  <circle cx="{cx}" cy="{cy}" r="{R}" fill="#0D1430" stroke="{PURPLE_BRIGHT}" stroke-opacity="0.16" stroke-width="5"/>
+  <circle cx="{cx}" cy="{cy}" r="{R}" fill="none" stroke="{PURPLE_BRIGHT}" stroke-width="5" stroke-linecap="round"
+    stroke-dasharray="{C:.2f}" stroke-dashoffset="{C:.2f}" transform="rotate(-90 {cx} {cy})">
+    <animate attributeName="stroke-dashoffset" from="{C:.2f}" to="{{RING_OFF}}" begin="0.5s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.25 1"/>
+  </circle>
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 {cx} {cy}" to="360 {cx} {cy}" dur="3.2s" repeatCount="indefinite"/>
+    <path d="M {cx+R} {cy} A {R} {R} 0 0 0 {tx:.1f} {ty:.1f}" fill="none" stroke="url(#cometTail)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="{cx+R}" cy="{cy}" r="3.4" fill="#FFFFFF" filter="url(#softGlow)"/>
+  </g>
+  <text x="{cx}" y="{cy+13}" text-anchor="middle" font-family="{SANS}" font-size="36" font-weight="800" fill="{STAR_WHITE}">{{CURRENT}}</text>
+  <text x="{cx}" y="180" text-anchor="middle" font-family="{MONO}" font-size="10.5" letter-spacing="1.6" fill="{CYAN_BRIGHT}">CURRENT STREAK</text>
+  <text x="{cx}" y="198" text-anchor="middle" font-family="{MONO}" font-size="10" letter-spacing="0.5" fill="{MUTED}" opacity="0.8">{{CURRENT_RANGE}}</text>
+</g>
+
+<!-- longest streak -->
+{side_stat(750, "{LONGEST}", "LONGEST STREAK", "{LONGEST_RANGE}", GOLD)}
+
+<!-- last 30 days trail: dots injected by update_streak.py -->
+<line x1="20" y1="{H-52}" x2="{W-20}" y2="{H-52}" stroke="{CYAN}" stroke-opacity="0.25"/>
+<text x="30" y="{H-24}" font-family="{MONO}" font-size="10.5" letter-spacing="1.6" fill="{MUTED}">LAST 30 DAYS</text>
+<line x1="150" y1="{H-28}" x2="850" y2="{H-28}" stroke="url(#trailLine)" stroke-width="1"/>
+{{TRAIL}}
+<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="16" fill="none" stroke="#26315c" stroke-opacity="0.55"/>
+</svg>"""
+    return svg
+
+
+# =====================================================================
 # 6. ASTRONAUT — floating, waving
 # =====================================================================
 def gen_astronaut():
@@ -931,28 +1033,6 @@ def gen_footer():
     return svg
 
 
-# =====================================================================
-# fill mission-control template with live values
-# =====================================================================
-def fill_dashboard(template, repos, followers, stars_n, years, sync_date):
-    C = 2 * math.pi * 27
-
-    def off(frac):
-        frac = max(0.06, min(1.0, frac))
-        return f"{C * (1 - frac):.2f}"
-
-    return (template
-            .replace("{REPOS_OFF}", off(repos / 20))
-            .replace("{FOLLOWERS_OFF}", off(followers / 20))
-            .replace("{STARS_OFF}", off(stars_n / 10))
-            .replace("{YEARS_OFF}", off(years / 8))
-            .replace("{REPOS}", str(repos))
-            .replace("{FOLLOWERS}", str(followers))
-            .replace("{STARS}", str(stars_n))
-            .replace("{YEARS}", str(years))
-            .replace("{SYNC_DATE}", sync_date))
-
-
 def validate(name, content):
     try:
         xml.dom.minidom.parseString(content)
@@ -969,10 +1049,13 @@ assets = {
     "tech-orbit.svg": gen_orbit(),
     "astronaut.svg": gen_astronaut(),
     "footer.svg": gen_footer(),
+    # Templates only. The live files (mission-control.svg, streak.svg) are
+    # produced from these by scripts/update_dashboard.py and
+    # scripts/update_streak.py — never written here, so regenerating the art
+    # can't clobber live telemetry.
+    "mission-control.template.svg": gen_mission_control_template(),
+    "streak.template.svg": gen_streak_template(),
 }
-tmpl = gen_mission_control_template()
-assets["mission-control.template.svg"] = tmpl
-assets["mission-control.svg"] = fill_dashboard(tmpl, 11, 5, 2, 4, "2026-08-13")
 
 for name, content in assets.items():
     validate(name, content)

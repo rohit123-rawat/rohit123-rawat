@@ -2,17 +2,24 @@ name: Refresh mission control dashboard
 
 on:
   schedule:
-    - cron: "30 0 * * *" # daily, just after midnight UTC
+    - cron: "30 */6 * * *" # every 6h (00:30, 06:30, 12:30, 18:30 UTC) so the streak card stays current
   workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - "assets/mission-control.template.svg"
+      - "assets/streak.template.svg"
       - "scripts/update_dashboard.py"
+      - "scripts/update_streak.py"
 
 permissions:
   contents: write
+
+# Serialise runs so a push-triggered run and a scheduled run never race on git push.
+concurrency:
+  group: refresh-telemetry
+  cancel-in-progress: false
 
 jobs:
   refresh:
@@ -29,12 +36,21 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update_dashboard.py
 
+      - name: Rebuild streak card SVG
+        # Independent of the dashboard step: if one fails the other still refreshes.
+        if: ${{ !cancelled() }}
+        env:
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/update_streak.py
+
       - name: Commit if changed
+        if: ${{ !cancelled() }}
         run: |
-          if ! git diff --quiet assets/mission-control.svg; then
+          if ! git diff --quiet assets/mission-control.svg assets/streak.svg; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add assets/mission-control.svg
+            git add assets/mission-control.svg assets/streak.svg
             git commit -m "chore: refresh mission control telemetry"
             git push
           else
