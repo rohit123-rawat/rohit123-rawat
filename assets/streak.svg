@@ -52,7 +52,7 @@
 <!-- total contributions -->
 <g>
   <circle cx="150" cy="72" r="2.4" fill="#A78BFA"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
-  <text x="150" y="120" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#E0E7FF">3,213</text>
+  <text x="150" y="120" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#E0E7FF">3,222</text>
   <text x="150" y="150" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10.5" letter-spacing="1.6" fill="#8B949E">TOTAL CONTRIBUTIONS</text>
   <text x="150" y="169" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10" letter-spacing="0.5" fill="#8B949E" opacity="0.8">Jun 27, 2022 — Present</text>
 </g>
@@ -116,7 +116,7 @@
 <circle cx="777.6" cy="236" r="5.2" fill="#7DF9FF" filter="url(#softGlow)"><animate attributeName="opacity" values="0.55;1;0.55" dur="2.6s" begin="-2.5s" repeatCount="indefinite"/></circle>
 <circle cx="801.7" cy="236" r="4.2" fill="#7DF9FF"><animate attributeName="opacity" values="0.55;1;0.55" dur="3.0s" begin="-3.0s" repeatCount="indefinite"/></circle>
 <circle cx="825.9" cy="236" r="4.2" fill="#7DF9FF"><animate attributeName="opacity" values="0.55;1;0.55" dur="3.4s" begin="0.0s" repeatCount="indefinite"/></circle>
-<circle cx="850.0" cy="236" r="3.2" fill="#7DF9FF"><animate attributeName="opacity" values="0.55;1;0.55" dur="3.8s" begin="-0.5s" repeatCount="indefinite"/><animate attributeName="r" values="3.2;5.7;3.2" dur="1.6s" repeatCount="indefinite"/></circle>
+<circle cx="850.0" cy="236" r="4.2" fill="#7DF9FF"><animate attributeName="opacity" values="0.55;1;0.55" dur="3.8s" begin="-0.5s" repeatCount="indefinite"/><animate attributeName="r" values="4.2;6.7;4.2" dur="1.6s" repeatCount="indefinite"/></circle>
 <text x="150" y="254" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="9" letter-spacing="1" fill="#8B949E" opacity="0.8">JUL 23</text>
 <text x="850" y="254" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="9" letter-spacing="1" fill="#8B949E" opacity="0.8">TODAY</text>
 <rect x="0.5" y="0.5" width="899" height="263" rx="16" fill="none" stroke="#26315c" stroke-opacity="0.55"/>
