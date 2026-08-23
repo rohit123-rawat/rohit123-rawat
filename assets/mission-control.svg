@@ -94,9 +94,9 @@
   <circle cx="692" cy="150" r="27" fill="none" stroke="#FBBF24" stroke-opacity="0.16" stroke-width="5"/>
   <circle cx="692" cy="150" r="27" fill="none" stroke="#FBBF24" stroke-width="5" stroke-linecap="round"
     stroke-dasharray="169.65" stroke-dashoffset="169.65" transform="rotate(-90 692 150)">
-    <animate attributeName="stroke-dashoffset" from="169.65" to="37.32" begin="0.5s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.25 1"/>
+    <animate attributeName="stroke-dashoffset" from="169.65" to="33.93" begin="0.5s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.25 1"/>
   </circle>
-  <text x="692" y="158" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="800" fill="#E0E7FF">39</text>
+  <text x="692" y="158" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="800" fill="#E0E7FF">40</text>
   <text x="692" y="205" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10.5" letter-spacing="1.6" fill="#8B949E">STARS EARNED</text>
   <circle cx="692" cy="112" r="2.4" fill="#FBBF24">
     <animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/>
