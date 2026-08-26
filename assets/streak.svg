@@ -52,7 +52,7 @@
 <!-- total contributions -->
 <g>
   <circle cx="150" cy="72" r="2.4" fill="#A78BFA"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
-  <text x="150" y="120" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#E0E7FF">3,296</text>
+  <text x="150" y="120" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#E0E7FF">3,308</text>
   <text x="150" y="150" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10.5" letter-spacing="1.6" fill="#8B949E">TOTAL CONTRIBUTIONS</text>
   <text x="150" y="169" text-anchor="middle" font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10" letter-spacing="0.5" fill="#8B949E" opacity="0.8">Jun 27, 2022 — Present</text>
 </g>
