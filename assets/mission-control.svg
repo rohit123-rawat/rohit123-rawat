@@ -38,7 +38,7 @@
 <g font-family="'Courier New',ui-monospace,Menlo,Consolas,monospace" font-size="10.5">
   <circle cx="552" cy="29" r="3.4" fill="#4ADE80"><animate attributeName="opacity" values="1;0.25;1" dur="1.4s" repeatCount="indefinite"/></circle>
   <text x="562" y="33" fill="#4ADE80" letter-spacing="1">LINK ESTABLISHED</text>
-  <text x="870" y="33" text-anchor="end" fill="#8B949E">SYNC 2026-08-31</text>
+  <text x="870" y="33" text-anchor="end" fill="#8B949E">SYNC 2026-09-01</text>
 </g>
 <line x1="20" y1="46" x2="880" y2="46" stroke="#22D3EE" stroke-opacity="0.25" stroke-width="1"/>
 
